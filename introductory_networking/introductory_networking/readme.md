@@ -7,25 +7,26 @@ The OSI (Open Systems Interconnection) model is used to demonstrate the theory b
 
 The OSI model consists of seven layers
 
-7. Application
-6. Presentation
-5. Session
-4. Transport
-3. Network
-2. Data Link
-1. Physical
+    7. Application
+    6. Presentation
+    5. Session
+    4. Transport
+    3. Network
+    2. Data Link
+    1. Physical
 
-7. The application layer provides networking options to programs running on a computer. It works primarily with applications. When data is given to the application layer it is passed down to the presentation layer
 
-6. The presentation layer receives data from the application layer. The presentation layer translates the data it has been passed into a standardised format that can be read by the receiving computer. It also can be used to encrypt or compress the data. When this is complete it is passed down to the session layer.
+The application layer provides networking options to programs running on a computer. It works primarily with applications. When data is given to the application layer it is passed down to the presentation layer
 
-5. The session layer attempts to begin a connection with another machine on the network. If this succeeds, the session layer is tasked with maintaining the session and syncronising communications with the session layer on the receiving computer. The session created is unique - you can make requests to different endpoints at the same time without the data being mixed up. When the session is connected, the data is passed down to the transport layer.
+The presentation layer receives data from the application layer. The presentation layer translates the data it has been passed into a standardised format that can be read by the receiving computer. It also can be used to encrypt or compress the data. When this is complete it is passed down to the session layer.
 
-4. The transport layer chooses the protocol that the data is transmitted over. TCP and UDP are the most common protocols that are used.
+The session layer attempts to begin a connection with another machine on the network. If this succeeds, the session layer is tasked with maintaining the session and syncronising communications with the session layer on the receiving computer. The session created is unique - you can make requests to different endpoints at the same time without the data being mixed up. When the session is connected, the data is passed down to the transport layer.
 
-	1. TCP - Transmission Control Protocol - Tcp is connection-based which means that a connection is established and maintained for the duration of the request. This ensures data is sent at an acceptable speed, and that any lost data is resent.
+The transport layer chooses the protocol that the data is transmitted over. TCP and UDP are the most common protocols that are used.
 
-	2. UDP - User Datagram Protocol - Packets of data are sent to another computer, if the receiving computer can't keep up then that is the receiving computers problem.
+1. TCP - Transmission Control Protocol - Tcp is connection-based which means that a connection is established and maintained for the duration of the request. This ensures data is sent at an acceptable speed, and that any lost data is resent.
+
+2. UDP - User Datagram Protocol - Packets of data are sent to another computer, if the receiving computer can't keep up then that is the receiving computers problem.
 
 TCP is generally used for when accuracy is more important than speed (file transfers, loading a webpage).
 
@@ -33,9 +34,9 @@ UDP is generally used for when speed is more important (video streaming)
 
 When the protocol is selected the transport layer divides the message into smaller pieces (on TCP they are called segments, on USP they're called datagrams). This makes it easier to transmit the message successfully.
 
-3. The network layer is responsible for locating the destination for the request. The network layer takes the IP address for the page and figures out the best route to take. At this stage the layer is still working with Logical addresses which are used to provide order to networks, catagorising them and allowing us to sort through them. (Often in IPV4 format (192.168.1.1))
+The network layer is responsible for locating the destination for the request. The network layer takes the IP address for the page and figures out the best route to take. At this stage the layer is still working with Logical addresses which are used to provide order to networks, catagorising them and allowing us to sort through them. (Often in IPV4 format (192.168.1.1))
 
-2. The data link layer is responsible for the physical addressing of the transmission, it's the physical address that determines exactly where to send the information. The data link layer receives a packet from the network layer which includes the IP address of the remote computer, and adds in the MAC address of the revieving endpoint. Every networked computer has a Network Interface Card which comes with a MAC address. 
+The data link layer is responsible for the physical addressing of the transmission, it's the physical address that determines exactly where to send the information. The data link layer receives a packet from the network layer which includes the IP address of the remote computer, and adds in the MAC address of the revieving endpoint. Every networked computer has a Network Interface Card which comes with a MAC address. 
 
 The MAC address cannot be changed, but it can be spoofed.
 
@@ -43,11 +44,11 @@ The data link layer ensures data is presented in a format suitable for transmiss
 
 Lastly the data link layer ensures that data hasn't been corrupted during transmission, which can happen when transmitted by layer 1, the physical layer.
 
-1. The physical layer is in the hardware of the computer. This is where the electrical pulses that make up the data transfer over a network are sent and received. The physical layer converts the binary transmission of the signals and transmits them over the network, it is also reponsible for translating received signals and converting them into binary data.
+The physical layer is in the hardware of the computer. This is where the electrical pulses that make up the data transfer over a network are sent and received. The physical layer converts the binary transmission of the signals and transmits them over the network, it is also reponsible for translating received signals and converting them into binary data.
 
 **Questions**
 
-1. Which layer would choose to send data over TCP or UDP?
+    1. Which layer would choose to send data over TCP or UDP?
 
 Transport layer
 
