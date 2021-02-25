@@ -152,6 +152,7 @@ hashcat -a0 -m1000 ffb43f0de35be4d9917ac0cc8ad57f8d /home/gabriel/Documents/rock
     Jons password alqfna22
 
 **Find Flags**
+
 Flag1 = flag{access_the_machine} located at the C drive
 
 Flag2 = flag{sam_database_elevated_access} located where windows stores passwords /windows/system32/config
