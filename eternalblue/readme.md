@@ -135,7 +135,7 @@ Logging into a remote Kali Machine was required, for some reason I could not get
 
 **Privesc**
 
-    use shell\_to\_meterpreter
+    use shell_to_meterpreter
     set sessions to be the session that we are using
     ps to list processes
     migrate to another process. Apparently winlogon.exe seems to be pretty stable on Windows so I'll use that
