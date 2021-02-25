@@ -12,11 +12,13 @@ cd is used to change directory
 
 mkdir is used to create a new directory
 
-#### Using relative paths, how would you cd to your home directory.
+**Questions**
+
+    1. Using relative paths, how would you cd to your home directory.
 
 cd ~
 
-#### Using absolute paths how would you make a directory called test in /tmp
+    2. Using absolute paths how would you make a directory called test in /tmp
 
 mkdir /tmp/test
 
@@ -26,7 +28,9 @@ ln can be used to hard link files. This creates another file that is a duplicate
 
 ln -s can be used to create a symbolic link - basically just a reference or pointer to the original file
 
-#### How would I link /home/test/testfile to /tmp/test
+**Questions**
+
+    1. How would I link /home/test/testfile to /tmp/test
 
 ln /home/test/testfile /tmp/test
 
@@ -38,36 +42,40 @@ find -user (user) will list every file owned by the current user
 
 find -group (group) will list every file owned by the group
 
-#### How do you find files that have specific permissions?
+**Questions**
+
+    1. How do you find files that have specific permissions?
 
 find -perm
 
-#### How would you find all the files in /home
+    2. How would you find all the files in /home
 
 find /home
 
-#### How would you find all the files owned by paradox on the whole system
+    3. How would you find all the files owned by paradox on the whole system
 
 find / -user paradox
 
-###grep
+### grep
 
 Grep is used to find data. Generally used with piping but can be supplied a file argument also.
 
-#### What flag lists line numbers for every string found?
+**Questions**
+
+    1. What flag lists line numbers for every string found?
 
 grep -n
  
-#### How would I search for the string boop in the file aaaa in the directory /tmp
+    2. How would I search for the string boop in the file aaaa in the directory /tmp
 
 grep boop /tmp/aaaa
 
 ## Finding shiba4's password
 
 This turned out to be annoying. Finding the binary was not easy, however running this command
-
+```
 find / shiba4 | grep shiba4 > log.txt
-
+```
 and then using cat to view the log made it possible to clearly see all the possiblilities for the binary, in the end the binary was found in /opt/secret
 
 Running this binary gave shiba4's password
@@ -80,15 +88,17 @@ shiba4 password = test1234
 
 sudo is basically adminstrator privlages. If a command requires sudo, you will need the administrator password to execute it.
 
-#### How do you specify which user you want to run a command as.
+**Questions**
+
+    1. How do you specify which user you want to run a command as.
 
 sudo -u
 
-#### How would I run whoami as user jen?
+    2. How would I run whoami as user jen?
 
 sudo -u jen whoami
 
-#### How do you list your current sudo privileges(what commands you can run, who you can run them as etc.)    
+    3. How do you list your current sudo privileges(what commands you can run, who you can run them as etc.)    
 
 sudo -l
 
@@ -99,9 +109,11 @@ In order to do this you must be root, or have adminstrator permissions
 In order to add a user - adduser username
 In order to add a group - addgroup groupname
 
-To add a user to a group use - usermod -a -G groups_seperated_by_commas user
+To add a user to a group use - usermod -a -G groups\_seperated\_by\_commas user
 
-#### How would I add the user test to the group test
+**Questions**
+
+    1. How would I add the user test to the group test
 
 sudo usermod -a -G test test
 
@@ -111,31 +123,31 @@ nano is a terminal based text editor. Probably more reasonable to focus on learn
 
 ### Basic Shell Scripting
 
-Run commands one after the other withhout using operators by using storing the commands in a file with the .sh extension/.
+Run commands one after the other withhout using operators by using storing the commands in a file with the .sh extension.
 
-Begin with #!/bin/bash in order to be able to remove the .sh extension and mark the file as executable (chmod 777 file)
+Begin the shell script with #!/bin/bash in order to be able to remove the .sh extension and mark the file as executable (chmod 777 file)
 
 ### Important Files and Directories
 
-/etc/passwd - Stores user information - used to see all the users on a system
+    /etc/passwd - Stores user information - used to see all the users on a system
 
-/etc/shadow - Has all the passwords of these users
+    /etc/shadow - Has all the passwords of these users
 
-/tmp - Every file inside it gets deleted upon shutdown - used for temporary files
+    /tmp - Every file inside it gets deleted upon shutdown - used for temporary files
 
-/etc/sudoers - Used to control the sudo permissions of every user on the system
+    /etc/sudoers - Used to control the sudo permissions of every user on the system
 
-/home - The directory where all your downloads, documents etc are.
+    /home - The directory where all your downloads, documents etc are.
 
-/root - The root user's home directory
+    /root - The root user's home directory
 
-/usr - Where software gets installed 
+    /usr - Where software gets installed 
 
-/bin and /sbin - Used for system critical files - DO NOT DELETE
+    /bin and /sbin - Used for system critical files - DO NOT DELETE
 
-/var - The Linux miscellaneous directory, a myriad of processes store data in /var
+    /var - The Linux miscellaneous directory, a myriad of processes store data in /var
 
-$PATH - Stores all the binaries you're able to run - do not need to provide full file path to execute these commands (ls, whoami,find)
+    $PATH - Stores all the binaries you're able to run - do not need to provide full file path to execute these commands (ls, whoami,find)
 
 ### Installing packages using apt
 
