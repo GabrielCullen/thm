@@ -1,0 +1,23 @@
+smtp-user-enum -U /opt/seclist/SecLists/Usernames/top-usernames-shortlist.txt 10.10.242.181 25 | tee /home/gabriel/tryhackme/introductory_networking/network_services_2/smtp_test
+Connecting to 10.10.242.181 25 ...
+220 polosmtp.home ESMTP Postfix (Ubuntu)
+250 polosmtp.home
+Start enumerating users with VRFY mode ...
+[----] root          252 2.0.0 root
+[----] admin         550 5.1.1 <admin>: Recipient address rejected: User unknown in local recipient table
+[----] test          550 5.1.1 <test>: Recipient address rejected: User unknown in local recipient table
+[----] guest         550 5.1.1 <guest>: Recipient address rejected: User unknown in local recipient table
+[----] info          550 5.1.1 <info>: Recipient address rejected: User unknown in local recipient table
+[----] adm           550 5.1.1 <adm>: Recipient address rejected: User unknown in local recipient table
+[----] mysql         550 5.1.1 <mysql>: Recipient address rejected: User unknown in local recipient table
+[----] user          550 5.1.1 <user>: Recipient address rejected: User unknown in local recipient table
+[----] administrator 252 2.0.0 administrator
+[----] oracle        550 5.1.1 <oracle>: Recipient address rejected: User unknown in local recipient table
+[----] ftp           550 5.1.1 <ftp>: Recipient address rejected: User unknown in local recipient table
+[----] pi            550 5.1.1 <pi>: Recipient address rejected: User unknown in local recipient table
+[----] puppet        550 5.1.1 <puppet>: Recipient address rejected: User unknown in local recipient table
+[----] ansible       550 5.1.1 <ansible>: Recipient address rejected: User unknown in local recipient table
+[----] ec2-user      550 5.1.1 <ec2-user>: Recipient address rejected: User unknown in local recipient table
+[----] vagrant       252 2.0.0 vagrant
+[----] azureuser     550 5.1.1 <azureuser>: Recipient address rejected: User unknown in local recipient table
+

@@ -1,0 +1,30 @@
+# Nmap 7.80 scan initiated Mon Mar  1 00:39:35 2021 as: nmap -p- -A -oN nmap/initial -vv 10.10.222.79
+Nmap scan report for 10.10.222.79
+Host is up, received conn-refused (0.041s latency).
+Scanned at 2021-03-01 00:39:35 GMT for 19s
+Not shown: 65533 closed ports
+Reason: 65533 conn-refused
+PORT     STATE SERVICE REASON  VERSION
+22/tcp   open  ssh     syn-ack OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 06:36:56:2f:f0:d4:a4:d2:ab:6a:43:3e:c0:f9:9b:2d (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDARp2fsEfGdkpZ2uvqlphanguxnImgdsVWYrdVW5RbwGsYtaaUtG317kP0AL+p2C5yOIoSZ7Gu9ZXmkDp7NsoNORakEA2liQx28cW9aac2UyvFwj91skg2UklKyPIQDVmxy8/n90MrsS6njShjgQV9fpW5AKYToQLbQRFkA4WycCOJgTsHqIOk0nshwTAcjkB6+BkCq4z12em6AuBDLAVN3CflrryG8+7WK6jCrgy1/uxitavbgjisLxzQK73pcRRbfZysiKhFi+ILA993pZiRMufaKEbIiLiqhKoO8L2azYubLLFzLdoDSVuItUE5S6pCUd3MZnPcGjS3jvG3l0sB
+|   256 30:bd:be:28:bd:32:dc:f6:ff:28:b2:57:57:31:d9:cf (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBGL5ew9bb0sGn6weQ2A2iQHt5Cp5oH5UA+LKbHSmmvJxew3luqjVo7PbvyTqNIW9MLWw1enq8+180yR4sZ4hZBg=
+|   256 f2:3b:82:4a:5c:d2:18:19:89:1f:cd:92:0a:c7:cf:65 (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOSrsLKHkaEMJg3PX0y9pMtpfAYlRXTf0z2qSORHoemr
+3306/tcp open  mysql   syn-ack MySQL 5.7.29-0ubuntu0.18.04.1
+| mysql-info: 
+|   Protocol: 10
+|   Version: 5.7.29-0ubuntu0.18.04.1
+|   Thread ID: 4
+|   Capabilities flags: 65535
+|   Some Capabilities: SwitchToSSLAfterHandshake, Support41Auth, ConnectWithDatabase, InteractiveClient, Speaks41ProtocolNew, IgnoreSigpipes, FoundRows, DontAllowDatabaseTableColumn, SupportsLoadDataLocal, SupportsCompression, LongColumnFlag, SupportsTransactions, Speaks41ProtocolOld, LongPassword, IgnoreSpaceBeforeParenthesis, ODBCClient, SupportsAuthPlugins, SupportsMultipleStatments, SupportsMultipleResults
+|   Status: Autocommit
+|   Salt: \x1Ev5)	\x0E7T\x1E@R'\x03Flup\x1Eb\x04
+|_  Auth Plugin Name: mysql_native_password
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Mar  1 00:39:54 2021 -- 1 IP address (1 host up) scanned in 19.38 seconds
