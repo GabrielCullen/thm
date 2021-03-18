@@ -2,8 +2,9 @@
 
 ##  Getting Started
 
-Modify etc/hosts with ``` echo "10.10.229.111    overwrite.uploadvulns.thm shell.uploadvulns.thm java.uploadvulns.thm annex.uploadvulns.thm magic.uploadvulns.thm jewel.uploadvulns.thm" | sudo tee -a /etc/hosts
-```
+Modify etc/hosts with 
+
+``` echo "10.10.229.111    overwrite.uploadvulns.thm shell.uploadvulns.thm java.uploadvulns.thm annex.uploadvulns.thm magic.uploadvulns.thm jewel.uploadvulns.thm" | sudo tee -a /etc/hosts```
 
 When complete run ```sudo sed -i '$d' /etc/hosts```
 
