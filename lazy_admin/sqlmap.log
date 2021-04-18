@@ -1,0 +1,51 @@
+        ___
+       __H__
+ ___ ___[']_____ ___ ___  {1.5.4.5#dev}
+|_ -| . [,]     | .'| . |
+|___|_  [)]_|_|_|__,|  _|
+      |_|V...       |_|   http://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 20:00:38 /2021-04-18/
+
+do you want to check for the existence of site's sitemap(.xml) [y/N] [20:00:40] [WARNING] 'sitemap.xml' not found
+[20:00:40] [INFO] starting crawler for target URL 'http://10.10.14.158/content/as/'
+[20:00:40] [INFO] searching for links with depth 1
+[20:00:40] [INFO] searching for links with depth 2
+please enter number of threads? [Enter for 1 (current)] [20:00:43] [INFO] starting 4 threads
+do you want to normalize crawling results [Y/n] do you want to store crawling results to a temporary file for eventual further processing with other tools [y/N] URL 1:
+GET http://10.10.14.158/content/as/?type=password
+do you want to test this URL? [Y/n/q]
+> [20:00:51] [INFO] testing URL 'http://10.10.14.158/content/as/?type=password'
+[20:00:51] [INFO] using '/home/gabriel/.sqlmap/output/results-04182021_0800pm.csv' as the CSV results file in multiple targets mode
+[20:00:51] [INFO] testing connection to the target URL
+[20:00:51] [WARNING] the web server responded with an HTTP error code (404) which could interfere with the results of the tests
+you have not declared cookie(s), while server wants to set its own ('sweetrice=lldqequg4ee...visgqf50r2'). Do you want to use those [Y/n] [20:00:52] [INFO] testing if the target URL content is stable
+[20:00:53] [INFO] target URL content is stable
+[20:00:53] [INFO] testing if GET parameter 'type' is dynamic
+[20:00:53] [INFO] GET parameter 'type' appears to be dynamic
+[20:00:53] [WARNING] heuristic (basic) test shows that GET parameter 'type' might not be injectable
+[20:00:53] [INFO] testing for SQL injection on GET parameter 'type'
+[20:00:53] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
+[20:00:53] [WARNING] reflective value(s) found and filtering out
+[20:00:53] [INFO] testing 'Boolean-based blind - Parameter replace (original value)'
+[20:00:54] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'
+[20:00:54] [INFO] testing 'PostgreSQL AND error-based - WHERE or HAVING clause'
+[20:00:54] [INFO] testing 'Microsoft SQL Server/Sybase AND error-based - WHERE or HAVING clause (IN)'
+[20:00:54] [INFO] testing 'Oracle AND error-based - WHERE or HAVING clause (XMLType)'
+[20:00:55] [INFO] testing 'Generic inline queries'
+[20:00:55] [INFO] testing 'PostgreSQL > 8.1 stacked queries (comment)'
+[20:00:55] [INFO] testing 'Microsoft SQL Server/Sybase stacked queries (comment)'
+[20:00:55] [INFO] testing 'Oracle stacked queries (DBMS_PIPE.RECEIVE_MESSAGE - comment)'
+[20:00:56] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP)'
+[20:00:56] [INFO] testing 'PostgreSQL > 8.1 AND time-based blind'
+[20:00:56] [INFO] testing 'Microsoft SQL Server/Sybase time-based blind (IF)'
+[20:00:56] [INFO] testing 'Oracle AND time-based blind'
+it is recommended to perform only basic UNION tests if there is not at least one other (potential) technique found. Do you want to reduce the number of requests? [Y/n] [20:01:00] [INFO] testing 'Generic UNION query (NULL) - 1 to 10 columns'
+[20:01:03] [WARNING] GET parameter 'type' does not seem to be injectable
+[20:01:03] [ERROR] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Please retry with the switch '--text-only' (along with --technique=BU) as this case looks like a perfect candidate (low textual content along with inability of comparison engine to detect at least one dynamic parameter). If you suspect that there is some kind of protection mechanism involved (e.g. WAF) maybe you could try to use option '--tamper' (e.g. '--tamper=space2comment') and/or switch '--random-agent', skipping to the next URL
+[20:01:03] [INFO] you can find results of scanning in multiple targets mode inside the CSV file '/home/gabriel/.sqlmap/output/results-04182021_0800pm.csv'
+
+[*] ending @ 20:01:03 /2021-04-18/
+
